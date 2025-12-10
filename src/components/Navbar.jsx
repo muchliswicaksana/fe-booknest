@@ -5,16 +5,13 @@ const Navbar = () => {
   return (
     <div className="navbar bg-base-100 shadow-sm px-10">
       <div className="navbar-start">
-        <a className="text-xl">BookStore</a>
+        <button className="text-2xl font-bold">
+          <Link to="/">BookNest</Link>
+        </button>
       </div>
-      <div className="navbar-end">
-        <button>
-          <Link
-            to="/Add"
-            className="btn btn-outline btn-primary px-3 py-5 text-xl border-2"
-          >
-            Add new book
-          </Link>
+      <div className="navbar-end gap-10">
+        <button className="btn btn-soft btn-primary w-fit">
+          <Link to="/Add">Add new book</Link>
         </button>
       </div>
     </div>

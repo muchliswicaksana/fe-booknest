@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Books from "./pages/Books";
 import Update from "./pages/Update";
@@ -7,11 +7,12 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 
 const App = () => {
+  const [search, setSearch] = useState("")
   return (
     <>
-      <div className="App h-screen">
+      <div>
         <BrowserRouter>
-          <Navbar />
+          <Navbar search={search} setSearch={setSearch} />
           <Routes>
             <Route path="/" element={<Books />} />
             <Route path="/add" element={<Add />} />

@@ -30,34 +30,37 @@ const Books = () => {
 
   return (
     <div>
-      <h1 className="text-5xl font-bold text-center mt-10">Bookstore</h1>
-      <div className="books flex gap-10 m-12 justify-center flex-wrap">
+      <h1 className="text-5xl font-bold text-center mt-10">BookNest</h1>
+      <div className="books flex gap-10 m-12 justify-center flex-wrap text-blue-400">
         {books.map((book) => (
-          <div className="card w-100 bg-base-100 border p-5 " key={book.id}>
+          <div
+            className="card w-200 card-side border h-auto border-blue-400 p-4"
+            key={book.id}
+          >
             <figure>
               {book.cover && (
                 <img
-                  className="w-56 h-80 object-cover bg-blue-200 rounded-xl "
+                  className="object-cover h-100 w-260"
                   src={`http://localhost:8800/uploads/${book.cover}`}
                   alt={book.title}
                 />
               )}
             </figure>
             <div className="card-body">
-              <h2 className="card-title">{book.title}</h2>
-              <p className="flex">{book.description}</p>
-              <span className="flex">
+              <h2 className="card-title text-4xl">{book.title}</h2>
+              <p className="text-gray-400 text-justify mt-3">{book.description}</p>
+              <p className="text-2xl font-">
                 Rp. {book.price.toLocaleString("id-ID")}
-              </span>
-              <div className="card-actions flex gap-5 justify-end">
+              </p>
+              <div className="card-actions flex justify-end">
+                <button className="btn btn-outline btn-info w-20">
+                  <Link to={`/update/${book.id}`}>Edit</Link>
+                </button>
                 <button
-                  className="btn btn-outline btn-error"
+                  className="btn btn-outline btn-error w-20"
                   onClick={() => handleDelete(book.id)}
                 >
                   Delete
-                </button>
-                <button className="btn btn-outline btn-info">
-                  <Link to={`/update/${book.id}`}>Update</Link>
                 </button>
               </div>
             </div>
